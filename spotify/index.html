@@ -14,7 +14,6 @@
 body{margin:0;background:var(--plane);color:var(--ink);
   font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
 .wrap{max-width:860px;margin:0 auto;padding:0 22px}
-
 /* portada */
 header{padding:70px 0 10px;border-bottom:3px solid var(--granate)}
 .marca{display:flex;align-items:center;gap:16px;margin:0 0 18px}
@@ -25,7 +24,6 @@ h1{font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:
   font-weight:680;color:var(--azul);text-wrap:balance}
 .lede{font-size:clamp(16px,2.4vw,19px);color:var(--sec);max-width:60ch;margin:0 0 24px}
 .meta{color:var(--muted);font-size:14px;margin:0 0 26px}
-
 /* cápsulas */
 .capsulas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
   border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:36px 0}
@@ -35,7 +33,6 @@ h1{font-size:clamp(30px,6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:
 .capsula .l{font-size:14px;color:var(--sec);margin-top:6px;display:block}
 .capsula .l b{color:var(--ink);font-weight:600}
 .capsula:nth-child(6) .n{color:var(--granate)}
-
 /* texto */
 h2{font-size:22px;margin:48px 0 12px;font-weight:640;color:var(--azul);text-wrap:balance}
 h3{font-size:16px;margin:30px 0 0;color:var(--ink);font-weight:640}
@@ -43,7 +40,6 @@ p{max-width:64ch;color:var(--sec);margin:0 0 14px}
 p b{color:var(--ink)}
 code{background:#eef0f3;border-radius:4px;padding:1px 5px;font-size:.9em;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-
 /* índice de las ocho */
 ol.preguntas{padding-left:22px;margin:0 0 8px}
 ol.preguntas li{margin:0 0 10px;color:var(--sec)}
@@ -51,14 +47,18 @@ ol.preguntas b{color:var(--ink);font-weight:600}
 ol.preguntas a{color:var(--azul)}
 .nota{border:1px solid var(--line);border-left:3px solid var(--verde);background:var(--surface);
   border-radius:10px;padding:16px 18px;margin:30px 0;color:var(--sec);font-size:14.5px}
-
+/* secciones de gráfico */
+section{margin-top:46px;padding-top:30px;border-top:1px solid var(--line)}
+section>h2{margin-top:0}
+.kicker{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;margin:0 0 6px}
 /* figura */
 figure{margin:22px 0 0;background:var(--surface);border:1px solid var(--line);
-  border-radius:12px;padding:10px}
-figure object,figure img{display:block;width:100%;border:0;border-radius:7px}
+  border-radius:12px;padding:12px}
+figure>object,figure>img{display:block;width:100%;border:0;border-radius:7px}
 figcaption{color:var(--muted);font-size:13.5px;padding:12px 8px 4px;
-  border-top:1px solid var(--line);margin-top:10px}
-
+  border-top:1px solid var(--line);margin-top:12px}
+.tableauPlaceholder{margin:0 auto}
 /* ranking de etiquetas */
 .rank{list-style:none;counter-reset:r;padding:0;margin:20px 0 14px;background:var(--surface);
   border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -73,20 +73,17 @@ figcaption{color:var(--muted);font-size:13.5px;padding:12px 8px 4px;
 .rank li.acierta{background:#f2fbf5}
 .rank li.acierta::before{content:"\2713";color:var(--verde)}
 .rank-pie{font-size:14px;color:var(--muted);margin:0 0 8px}
-
 .cierre{border-left:3px solid var(--verde);padding-left:18px;margin:26px 0}
 .cierre p{font-size:17px}
 footer{border-top:1px solid var(--line);margin:60px 0 0;padding:24px 0 70px;
   color:var(--muted);font-size:13.5px}
 a{color:var(--azul)}
-
 @media (max-width:700px){.capsulas{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:460px){.capsulas{grid-template-columns:1fr}header{padding-top:48px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <div class="marca">
     <img class="logo" src="icon-framed.svg" alt="Spotify">
@@ -97,7 +94,6 @@ a{color:var(--azul)}
   me arrastró el algoritmo, sino cuánto elegí yo y cómo se nota en los datos.</p>
   <p class="meta">Mariano Fernández · <a href="../">volver a los ejercicios de clase</a></p>
 </header>
-
 <div class="capsulas">
   <div class="capsula"><span class="n">194.518</span><span class="l">reproducciones</span></div>
   <div class="capsula"><span class="n">8.938</span><span class="l">horas de música: <b>372 días seguidos</b></span></div>
@@ -106,13 +102,11 @@ a{color:var(--azul)}
   <div class="capsula"><span class="n">11.041</span><span class="l">sesiones de escucha, de <b>49 minutos</b> promedio</span></div>
   <div class="capsula"><span class="n">5,8</span><span class="l">temas que arrastra <b>cada decisión</b></span></div>
 </div>
-
 <h2>De dónde salen estos datos</h2>
 <p>Descargué el historial extendido de reproducción: una fila por cada vez que sonó algo desde que
 abrí la cuenta. Trae dos campos que el Wrapped no muestra, <code>reason_start</code> y
 <code>reason_end</code>: por qué empezó cada canción y por qué terminó. Todo lo que sigue sale de
 ahí.</p>
-
 <h2>Dos cosas que hubo que arreglar antes de contar nada</h2>
 <p><b>Qué cuenta como saltear.</b> El archivo trae un campo <code>skipped</code> y la tentación es
 contar los <code>true</code>. No alcanza. Una canción que suena tres segundos porque cerré la app
@@ -132,20 +126,72 @@ búsquedas reales y 28,4% de efectividad</b>, un número que se mantiene mes a m
 29,4) — señal de que el criterio no está inventando estructura.</p>
 <p>Ninguno de los dos arreglos es prolijidad. Sin ellos, dos de los ocho gráficos de esta página
 dirían otra cosa.</p>
-
 <h2>Las ocho preguntas</h2>
 <ol class="preguntas">
-  <li><b>¿A qué hora vivo, según mi música?</b> — el día entero repartido en reproducciones.</li>
-  <li><b>¿Cuánto de lo que escucho lo elegí yo?</b> — elección contra inercia, mes a mes.</li>
+  <li><b><a href="#horas">¿A qué hora vivo, según mi música?</a></b> — el día entero repartido en reproducciones.</li>
+  <li><b><a href="#eleccion">¿Cuánto de lo que escucho lo elegí yo?</a></b> — elección contra inercia, mes a mes.</li>
   <li><b><a href="#aluvial">¿Cómo empieza y cómo termina una canción?</a></b> — de dónde arranca cada reproducción y en qué termina.</li>
   <li><b><a href="#skips">¿Qué canciones nunca llego a terminar?</a></b> — el cementerio de los skips.</li>
-  <li><b>¿Quién mandó en cada año?</b> — los artistas que se turnaron el primer puesto.</li>
-  <li><b>¿Cómo mutaron mis géneros en doce años?</b> — la deriva lenta del gusto.</li>
-  <li><b>¿Y cuando sí busco a propósito?</b> — qué pasa con lo que busco tecleando.</li>
+  <li><b><a href="#artistas">¿Quién mandó en cada año?</a></b> — los artistas que se turnaron el primer puesto.</li>
+  <li><b><a href="#generos">¿Cómo mutaron mis géneros en doce años?</a></b> — la deriva lenta del gusto.</li>
+  <li><b><a href="#busquedas">¿Y cuando sí busco a propósito?</a></b> — qué pasa con lo que busco tecleando.</li>
   <li><b><a href="#algoritmo">¿Cómo me ve el algoritmo?</a></b> — las etiquetas que Spotify me asignó sin preguntarme.</li>
 </ol>
 
-<h2 id="aluvial">¿Cómo empieza y cómo termina una canción?</h2>
+<!-- ═══════════ 01 · TABLEAU PUBLIC ═══════════ -->
+<section id="horas">
+<p class="kicker">01 · Tableau Public</p>
+<h2>¿A qué hora vivo, según mi música?</h2>
+<p>El día entero repartido en reproducciones: cuándo suena algo y cuándo no. La música marca la
+rutina mejor que la agenda — se ven las horas de trabajo, los viajes y las noches largas sin
+necesidad de mirar un calendario.</p>
+<figure>
+<div class='tableauPlaceholder' id='viz1788903387022' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;01&#47;01-Aquhoravivosegnmimsica&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='01-Aquhoravivosegnmimsica&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;01&#47;01-Aquhoravivosegnmimsica&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1788903387022');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='750px';vizElement.style.width='100%';vizElement.style.minHeight='187px';vizElement.style.maxHeight='287px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
+  else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='750px';vizElement.style.width='100%';vizElement.style.minHeight='187px';vizElement.style.maxHeight='287px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';}
+  else { vizElement.style.width='100%';vizElement.style.height='727px';}
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+  vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+<figcaption>Reproducciones por hora del día. Hecho en Tableau Public.</figcaption>
+</figure>
+</section>
+
+<!-- ═══════════ 02 · DATAWRAPPER ═══════════ -->
+<section id="eleccion">
+<p class="kicker">02 · Datawrapper</p>
+<h2>¿Cuánto de lo que escucho lo elegí yo?</h2>
+<p>Cada reproducción arranca por algún motivo, y solo algunos son una decisión mía: buscar, abrir
+un disco, apretar play. El resto es el reproductor siguiendo de largo. Medido canción por canción
+la elección se ve chica, y eso es justamente lo que hay que discutir: yo no elijo temas, elijo
+discos.</p>
+<figure>
+  <iframe title="Elección contra inercia, mes a mes" aria-label="Gráfico de área"
+    id="datawrapper-chart-d47W0" src="https://datawrapper.dwcdn.net/d47W0/2/" scrolling="no"
+    frameborder="0" style="width:0;min-width:100% !important;border:none" height="388"
+    data-external="1"></iframe>
+  <figcaption>Proporción de reproducciones que empiezan por una decisión, mes a mes.</figcaption>
+</figure>
+<h3>¿Y elijo lo mismo en todos los géneros?</h3>
+<p>No. Hay géneros donde entro a propósito y géneros que suenan porque ya estaban sonando. La
+distancia entre los dos extremos de cada línea es cuánto cambia mi papel según qué escucho.</p>
+<figure>
+  <iframe title="Cuánto elijo según el género" aria-label="Gráfico de rangos"
+    id="datawrapper-chart-iJFul" src="https://datawrapper.dwcdn.net/iJFul/3/" scrolling="no"
+    frameborder="0" style="width:0;min-width:100% !important;border:none" height="287"
+    data-external="1"></iframe>
+  <figcaption>Ordenado por brecha: arriba los géneros que busco, abajo los que me encuentran.</figcaption>
+</figure>
+</section>
+
+<!-- ═══════════ 03 · RAWGRAPHS ═══════════ -->
+<section id="aluvial">
+<p class="kicker">03 · RAWGraphs</p>
+<h2>¿Cómo empieza y cómo termina una canción?</h2>
 <p>Cada cinta sale de un motivo de arranque y termina en un motivo de final. Ahí se ve la forma de
 una decisión: qué proporción de lo que sonó empezó porque yo apreté algo, y qué proporción de eso
 llegó al final del tema.</p>
@@ -157,42 +203,101 @@ llegó al final del tema.</p>
   <figcaption>Hecho en RAWGraphs sobre <code>v2_aluvial.csv</code>. Los motivos son los de
   <code>reason_start</code> y <code>reason_end</code> tal como los nombra Spotify.</figcaption>
 </figure>
+</section>
 
-<h2 id="skips">¿Qué canciones nunca llego a terminar?</h2>
-<p>Arriba de todo en el ranking de salteos hay una veta de trova: Silvio Rodríguez y Serrat, en
-temas que están en una playlist que comparto con mi vieja. Cuando escuchamos juntos, quedan;
-cuando el reproductor es mío, los paso. El salteo ahí no mide desinterés por el disco: mide de
-quién es la sesión. Es el mejor ejemplo de que un dato de comportamiento no se lee solo —
+<!-- ═══════════ 04 · FLOURISH ═══════════ -->
+<section id="skips">
+<p class="kicker">04 · Flourish</p>
+<h2>¿Qué canciones nunca llego a terminar?</h2>
+<p>Porcentaje de salteo contra reproducción promedio: arriba a la izquierda están los temas que
+pongo y no aguanto. Arriba de todo hay una veta de trova —Silvio Rodríguez y Serrat— en temas que
+están en una playlist que comparto con mi vieja. Cuando escuchamos juntos, quedan; cuando el
+reproductor es mío, los paso. El salteo ahí no mide desinterés por el disco: mide de quién es la
+sesión. Es el mejor ejemplo de que un dato de comportamiento no se lee solo —
 <code>reason_end: fwdbtn</code> dice qué pasó, no por qué.</p>
+<figure>
+  <div class="flourish-embed flourish-chart" data-src="visualisation/30183230"><noscript><img src="https://public.flourish.studio/visualisation/30183230/thumbnail" width="100%" alt="Porcentaje de salteo contra reproducción promedio" /></noscript></div>
+  <figcaption>Cada punto es una canción con al menos 20 reproducciones.</figcaption>
+</figure>
+</section>
 
-<h2 id="algoritmo">¿Cómo me ve el algoritmo?</h2>
+<!-- ═══════════ 05 · FLOURISH ═══════════ -->
+<section id="artistas">
+<p class="kicker">05 · Flourish</p>
+<h2>¿Quién mandó en cada año?</h2>
+<p>Los artistas turnándose el primer puesto, año a año. No es un ranking: es ver cuánto dura una
+obsesión y cuándo la reemplaza otra.</p>
+<figure>
+  <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/30183255"><noscript><img src="https://public.flourish.studio/visualisation/30183255/thumbnail" width="100%" alt="Carrera de barras de artistas más escuchados por año" /></noscript></div>
+  <figcaption>Reproducciones acumuladas por artista a lo largo de los doce años.</figcaption>
+</figure>
+</section>
+
+<!-- ═══════════ 06 · FLOURISH ═══════════ -->
+<section id="generos">
+<p class="kicker">06 · Flourish</p>
+<h2>¿Cómo mutaron mis géneros en doce años?</h2>
+<p>El gusto no cambia de golpe: se corre. El streamgraph muestra el ancho de cada género a lo
+largo del tiempo, así que lo que se lee no es qué escuché más, sino qué fue ganando lugar y qué se
+fue apagando sin que yo lo decidiera del todo.</p>
+<figure>
+  <div class="flourish-embed flourish-chart" data-src="visualisation/30183271"><noscript><img src="https://public.flourish.studio/visualisation/30183271/thumbnail" width="100%" alt="Streamgraph de géneros escuchados a lo largo del tiempo" /></noscript></div>
+  <figcaption>Ancho de banda = reproducciones del género en ese período.</figcaption>
+</figure>
+</section>
+
+<!-- ═══════════ 07 · DATAWRAPPER ═══════════ -->
+<section id="busquedas">
+<p class="kicker">07 · Datawrapper</p>
+<h2>¿Y cuando sí busco a propósito?</h2>
+<p>Buscar es el gesto más deliberado que hay en la app: teclear un nombre. Pasó <b>183 veces</b> en
+doce años, y solo <b>28,4%</b> de esas búsquedas terminó en algo abierto. El resto quedó en la
+nada: escribí, miré y seguí con lo que estaba sonando.</p>
+<figure>
+  <iframe title="Qué pasa después de una búsqueda" aria-label="Gráfico de barras"
+    id="datawrapper-chart-egyAm" src="https://datawrapper.dwcdn.net/egyAm/2/" scrolling="no"
+    frameborder="0" style="width:0;min-width:100% !important;border:none" height="173"
+    data-external="1"></iframe>
+  <figcaption>Sobre 183 búsquedas reales, después de colapsar las filas por tecleo.</figcaption>
+</figure>
+</section>
+
+<!-- ═══════════ 08 · LAS ETIQUETAS ═══════════ -->
+<section id="algoritmo">
+<p class="kicker">08 · El archivo de inferencias</p>
+<h2>¿Cómo me ve el algoritmo?</h2>
 <p>Spotify me tiene 71 etiquetas: 23 de género musical, razonables todas, y 48 que no tienen nada
 que ver con música. La tentación es reírse de esas 48. El problema es que <b><i>Toys &amp; Board /
 Card Games Enthusiasts</i> soy exactamente yo</b>: Pokémon, Magic, D&amp;D, Catan. Y eso no está en
 mi historial de escucha por ningún lado.</p>
-<p>O sea que el acierto no salió de mis datos de reproducción: o lo compraron afuera, o lo
-predijeron a partir de algo que yo no veo. Las que sí fallan fallan por geografía, no por gusto.
-El perfil no es un disparate: es más preciso de lo que me gustaría, y no puedo saber de dónde lo
-sacó.</p>
-
-<h3>Las cinco que más lejos pegan</h3>
+<p>El archivo dice de dónde vino cada una. Las que llevan <code>1P</code> las dedujo Spotify de lo
+que hago adentro; las que llevan <code>3P</code> se las dieron de afuera. <b>Son tres, y son las
+tres que no se explican por mi música</b> — incluida la que me clava el gusto. No la dedujeron: la
+compraron.</p>
+<h3>Las que más lejos pegan</h3>
 <ol class="rank">
-  <li><div><span class="et">India 10K–20K Device Listeners</span>
-    <span class="por">Un segmento de dispositivos de un país donde nunca estuve ni tengo con qué aparecer.</span></div></li>
-  <li><div><span class="et">Entertainment Enthusiasts (BR)</span>
+  <li><div><span class="et">1P_Custom_India_10Kto20K_Device_Listeners</span>
+    <span class="por">Un segmento de dispositivos de un país donde nunca estuve.</span></div></li>
+  <li><div><span class="et">1P_Custom_EventAffinity_Stagecoach 2026</span>
+    <span class="por">Un festival de country en California. No hay country entre mis 23 géneros.</span></div></li>
+  <li><div><span class="et">3P_Entertainment Enthusiasts_BR</span>
     <span class="por">Brasil. Ni el idioma ni la música que escucho lo explican.</span></div></li>
-  <li><div><span class="et">Entertainment Enthusiasts (MX)</span>
+  <li><div><span class="et">3P_Entertainment Enthusiasts_MX</span>
     <span class="por">La misma etiqueta con otro país: el segmento se repite, cambia el mercado.</span></div></li>
-  <li class="acierta"><div><span class="et">Toys &amp; Board / Card Games Enthusiasts (FR)</span>
+  <li><div><span class="et">1P_Custom_Auto_Volkswagen [Advertiser-Specific]</span>
+    <span class="por">Un segmento armado para una automotriz puntual, no una categoría general.</span></div></li>
+  <li class="acierta"><div><span class="et">3P_Custom_Toys &amp; Board / Card Games Enthusiasts_FR</span>
     <span class="por">La que parece más disparatada de todas es la única que acierta. Falla el país, no el gusto.</span></div></li>
 </ol>
-<p class="rank-pie">Las que fallan, fallan por geografía: me ubican en mercados donde nunca estuve.
-Ninguna falla en la música.</p>
-
+<p class="rank-pie">Hay además <b>13 afinidades de artista</b> con el nombre tapado
+(<code>ArtistAffinity_0722b6</code>, <code>_09af40</code>, …): me venden por artista y el artista
+no me lo muestran.</p>
 <p>En la misma línea: de las 645 campañas de Marquee que me mostraron, <b>574 apuntaban al segmento
 «Previously Active Listeners»</b>. Casi el 90% de esa publicidad no vino a descubrirme nada, vino a
 traerme de vuelta.</p>
+</section>
 
+<section id="cierre">
 <h2>Qué me llevo</h2>
 <div class="cierre">
 <p>El algoritmo no se comió mi voluntad, y no porque me haya resistido: <b>busco qué escuchar y
@@ -205,19 +310,33 @@ deja correr</b>: los 5,8 temas que sigue a cada decisión no son inercia, son el
 proporción de «elección» se vea tan baja si uno la mide canción por canción. La unidad de mi
 decisión no es el tema: es el disco.</p>
 <p>Y sin embargo, la parte incómoda no está en la música. Está en que el perfil que me armaron
-acierta en cosas que nunca le conté a Spotify.</p>
+acierta en cosas que nunca le conté a Spotify, y el propio archivo admite que esa parte no la
+dedujo: la trajo de afuera.</p>
 </div>
-
-<div class="nota">
-  <b>En construcción.</b> Faltan siete de las ocho visualizaciones: se van publicando acá a medida
-  que salen de RAWGraphs, Flourish, Datawrapper y Tableau Public.
-</div>
-
+</section>
 <footer>
   <p>Los datos son personales y no se publican en crudo: al repositorio solo suben las tablas
-  agregadas que alimentan cada gráfico.</p>
+  agregadas que alimentan cada gráfico. Hecho con RAWGraphs, Flourish, Datawrapper y Tableau
+  Public para el módulo de Visualización de la información del ITBA.</p>
 </footer>
-
 </div>
+
+<!-- Un solo script por herramienta, al final: los embeds de arriba son solo el contenedor. -->
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+<script type="text/javascript">
+(function(){
+  window.addEventListener("message", function(e){
+    if (e.data["datawrapper-height"] === undefined) return;
+    var frames = document.querySelectorAll("iframe");
+    for (var key in e.data["datawrapper-height"]) {
+      for (var i = 0, frame; frame = frames[i]; i++) {
+        if (frame.contentWindow === e.source) {
+          frame.style.height = e.data["datawrapper-height"][key] + "px";
+        }
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>
