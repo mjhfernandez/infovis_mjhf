@@ -196,12 +196,13 @@ distancia entre los dos extremos de cada línea es cuánto cambia mi papel segú
 una decisión: qué proporción de lo que sonó empezó porque yo apreté algo, y qué proporción de eso
 llegó al final del tema.</p>
 <figure>
-  <object type="image/svg+xml" data="v3_aluvial.svg" style="aspect-ratio:16/10"
+  <object id="aluvial-svg" type="image/svg+xml" data="03.svg" style="aspect-ratio:16/10"
           aria-label="Diagrama aluvial: de qué motivo arranca cada reproducción y en qué motivo termina">
-    <img src="v3_aluvial.svg" alt="Diagrama aluvial de motivo de inicio a motivo de final">
+    <img src="03.svg" alt="Diagrama aluvial de motivo de inicio a motivo de final">
   </object>
   <figcaption>Hecho en RAWGraphs sobre <code>v2_aluvial.csv</code>. Los motivos son los de
-  <code>reason_start</code> y <code>reason_end</code> tal como los nombra Spotify.</figcaption>
+  <code>reason_start</code> y <code>reason_end</code> tal como los nombra Spotify.
+  Pasá el mouse por las cintas para ver los valores.</figcaption>
 </figure>
 </section>
 
@@ -320,6 +321,32 @@ dedujo: la trajo de afuera.</p>
   Public para el módulo de Visualización de la información del ITBA.</p>
 </footer>
 </div>
+
+<!-- El SVG del aluvial va en <object> para que se mantengan sus interacciones. Acá le tomamos
+     el viewBox real y le damos esa proporción al contenedor, así no queda ni cortado ni con
+     franjas en blanco. -->
+<script type="text/javascript">
+(function(){
+  var o = document.getElementById('aluvial-svg');
+  if (!o) return;
+  function ajustar(){
+    try {
+      var svg = o.contentDocument && o.contentDocument.querySelector('svg');
+      if (!svg) return;
+      var vb = svg.getAttribute('viewBox');
+      if (vb) {
+        var p = vb.split(/[\s,]+/);
+        if (p.length === 4 && +p[2] && +p[3]) o.style.aspectRatio = p[2] + ' / ' + p[3];
+      }
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+      svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    } catch (e) { /* el SVG no cargó todavía */ }
+  }
+  o.addEventListener('load', ajustar);
+  if (o.contentDocument && o.contentDocument.readyState === 'complete') ajustar();
+})();
+</script>
 
 <!-- Un solo script por herramienta, al final: los embeds de arriba son solo el contenedor. -->
 <script src="https://public.flourish.studio/resources/embed.js"></script>
